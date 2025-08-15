@@ -1,0 +1,347 @@
+.camera-3d-container {
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-3d {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  animation: floatCamera 4s ease-in-out infinite;
+}
+
+@keyframes floatCamera {
+  0%, 100% { transform: translateY(0px) rotateY(0deg); }
+  25% { transform: translateY(-10px) rotateY(5deg); }
+  50% { transform: translateY(0px) rotateY(0deg); }
+  75% { transform: translateY(-10px) rotateY(-5deg); }
+}
+
+.camera-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.camera-top {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 8px 8px 0 0;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.viewfinder {
+  width: 20px;
+  height: 15px;
+  background: linear-gradient(145deg, #444, #222);
+  border-radius: 3px;
+  border: 1px solid #555;
+}
+
+.brand-name {
+  font-size: 8px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.mode-dial {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(145deg, #333, #111);
+  border-radius: 50%;
+  border: 2px solid #555;
+  position: relative;
+}
+
+.mode-dial::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.camera-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.lens-mount {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(145deg, #333, #111);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.lens {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(145deg, #222, #000);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.lens-front {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(145deg, #111, #333);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lens-glass {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(100,100,255,0.3) 0%, rgba(0,0,0,0.8) 100%);
+  border-radius: 50%;
+  border: 2px solid #444;
+  position: relative;
+  overflow: hidden;
+}
+
+.lens-glass::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 15px;
+  height: 25px;
+  background: linear-gradient(45deg, rgba(255,255,255,0.3), transparent);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.lens-ring {
+  position: absolute;
+  border: 2px solid #555;
+  border-radius: 50%;
+}
+
+.lens-ring:first-child {
+  width: 95px;
+  height: 95px;
+}
+
+.lens-ring:last-child {
+  width: 85px;
+  height: 85px;
+}
+
+.lens-label {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6px;
+  color: #ccc;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.camera-grip {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 40px;
+  height: 80px;
+  background: linear-gradient(145deg, #333, #111);
+  border-radius: 0 8px 8px 0;
+}
+
+.grip-texture {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.1) 2px,
+    rgba(255,255,255,0.1) 4px
+  );
+  border-radius: 0 8px 8px 0;
+}
+
+.camera-logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.camera-side {
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+  border-radius: 0 8px 8px 0;
+  transform: rotateY(90deg);
+  transform-origin: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.control-button {
+  width: 15px;
+  height: 8px;
+  background: linear-gradient(145deg, #333, #111);
+  border-radius: 4px;
+  border: 1px solid #555;
+}
+
+.camera-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hot-shoe {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 8px;
+  background: linear-gradient(145deg, #333, #111);
+  border-radius: 4px;
+  border: 1px solid #555;
+}
+
+.lcd-screen {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 50px;
+  background: linear-gradient(145deg, #000, #222);
+  border-radius: 4px;
+  border: 2px solid #333;
+}
+
+.control-dials {
+  position: absolute;
+  top: -25px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.dial {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(145deg, #333, #111);
+  border-radius: 50%;
+  border: 2px solid #555;
+  position: relative;
+}
+
+.dial::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 1px;
+  height: 6px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+/* Hover effects */
+.camera-3d:hover {
+  transform: scale(1.05);
+}
+
+.camera-3d:hover .lens-glass {
+  background: radial-gradient(circle, rgba(100,150,255,0.4) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .camera-3d-container {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .camera-3d {
+    width: 200px;
+    height: 130px;
+  }
+  
+  .lens-mount {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .lens {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .lens-front {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .lens-glass {
+    width: 35px;
+    height: 35px;
+  }
+}
